@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row one">
+        <div class="col-md-12 first-area">
+            <app-search
+                (recipeSearched)="getRecipe($event)"
+                (searchQuery)="getSearchQuery($event)">
+            </app-search>
+        </div>
+    </div>
+
+    <div class="row two">
+        <div class="col-md-3 second-area smart-scroll" id="uno" #items>
+            <h3 class="border-bottom">Results</h3>
+                <recipe-list
+                *ngFor="let x of data"
+                [recipes]="x"
+                (recipeClicked)="revert($event)"
+                (awaitIngredients)="ingCourier($event)"></recipe-list>
+                <!--Add the getRecipe data to the recipe list component and display as a list
+                Two custom event sent from recipe list as well to detect custom events-->
+        </div>
+
+        <div class="col-md-6 second-area" id="dos">
+            <h3 class="border-bottom">Ingredients</h3>
+            <a class="go-back-ing" (click)="goLeftRec()" href="#uno">&#10554;</a>
+            <a class="go-front-ing" (click)="goRight()" href="#tres">&#10556;</a>
+            <div *ngIf="newSearch == true">
+                <div *ngIf="servings" class="servings">
+                    <p>Serving Size</p>
+                    <select value="update" id="servings-select">
+                        <option class="serving" value="servings" selected="selected">{{ servings }}</option>
+                        <option class="serving" value="servings * 2">{{ servings * 2 }}</option>
+                        <option class="serving" value="servings * 3">{{ servings * 3 }}</option>
+                        <option class="serving" value="servings * 4">{{ servings * 4 }}</option>
+                    </select>
+                    <div>
+                        <h4>{{ recipeName }}</h4>
+                    </div>
+                </div>
+                <ingredients
+                    *ngFor="let i of ingredients"
+                    [ingredient]="i"></ingredients>
+                    <a *ngIf="servings" class="shop-btn btn btn-primary" (click)="goRight()" href="#tres">Add All to Shopping List</a>
+                    <a *ngIf="servings" class="main-shop-btn btn btn-primary" href="#">Add All to Shopping List</a>
+                
+            </div>
+              
+        </div>
+
+        <div class="col-md-3 second-area" id="tres">
+            <h3 class="border-bottom">Shopping List</h3>
+            <a class="go-back-shopping" (click)="goLeftIng()" href="#dos">&#10554;</a>
+            <shopping-list></shopping-list>
+        </div>
+    </div>    
+</div>

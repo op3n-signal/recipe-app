@@ -1,0 +1,77 @@
+* {
+    width: 100%;
+    margin: auto;
+}
+
+.container {
+    padding: 25px;
+
+}
+
+.row {
+    width: 100%;
+}
+
+label {
+    font-size: 20px;
+    color: rgb(241, 241, 241);
+}
+
+h1 {
+    background: rgba(197, 197, 197, 0.815);
+    height: 20px;
+    border-radius: 5%;
+    padding: 5px;
+    font-size: 24px;
+    text-align: center;
+    color: rgb(39, 37, 37);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.logo {
+    background: url('https://cdn0.iconfinder.com/data/icons/food-1031/64/108-512.png') no-repeat center rgb(212, 210, 165);
+    border-radius: 5%;
+    padding: 0 5px;
+    height: 70px;
+    width: 100px;
+    background-size: 60px 60px;
+    animation: 4s ease-out flip;
+    z-index: 4;
+}
+
+.logo:hover {
+    transform: scale(1.05, 1.04);
+}
+
+@keyframes flip {
+    20% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(40deg) translateY(37px);
+    }
+    
+}
+
+.uno {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.dos {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+input {
+    color:rgb(26, 25, 25);
+    padding: 20px;
+    font-size: 18px;
+    width: 30%;
+    min-width: 250px;
+    margin: auto;
+    text-align: center;
+}

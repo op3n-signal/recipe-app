@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 recipe-area border-bottom" #item>
+            <div class="stand">
+                <h4 *ngIf="recipes.title.length > 35; else shoe">
+                    <a 
+                        (click)="getIngredients()" 
+                        href="#dos" alt="{{recipes.title}}" 
+                        url="{{recipes.url}}" 
+                        #name>
+                        {{ recipes.title | slice: 0: 40 }}...
+                    </a>
+                </h4>
+                <ng-template #shoe>
+                    <h4>
+                        <a 
+                            (click)="getIngredients()" 
+                            alt="{{recipes.title}}" 
+                            href="#dos" 
+                            url="{{recipes.url}}" 
+                            #name>
+                            {{ recipes.title }}
+                        </a>
+                    </h4>
+                </ng-template>
+                <p>(Cooking time: {{ recipes.time }} minutes)</p>
+            </div>
+            <img 
+                src="{{recipes.baseUri}}{{recipes.image}}" 
+                alt="{{recipes.title}}">
+        </div>
+    </div>
+</div>

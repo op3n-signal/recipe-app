@@ -1,0 +1,202 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: rgb(233, 233, 233);
+    padding: 0;
+    margin: 0;
+}
+
+/*first container*/
+.one {
+    margin: 0;
+    padding: 0;
+    background: url('https://www.foodphotographyprops.co.uk/wp-content/uploads/2015/10/Food-Photography-Props-Web.jpg') no-repeat;
+    width: 100vw;
+    min-height: 22.5vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.first-area {
+    height: 100%;
+}
+/*second container*/
+.two {
+    height: 77.5vh;
+    overflow: hidden;
+}
+
+
+
+/*each of the bottom components*/
+.second-area {
+    background: rgb(233, 233, 233);
+    border-right: solid 1px rgb(184, 184, 184);
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+/*bottom border for the h1 of each of the bottom components*/
+.border-bottom {
+    padding: 20px;
+    color: rgb(24, 24, 24);
+    text-align: center;
+    margin: 0;
+}
+
+.go-back {
+    visibility: hidden;
+}
+
+/*div that holds the servings info*/
+.servings {
+    display: flex;
+    padding-bottom: 15px;
+    align-items: center;
+}
+
+.servings p {
+   font-weight: bold;
+   font-size: 17px;
+   padding: 10px 10px 0 0;
+   color: rgb(46, 46, 46);
+   flex: 1;
+}
+
+select {
+    width: 3.5em;
+    max-height: 2em;
+    flex: 0.5;
+}
+
+.servings div {
+    flex: 6;
+    text-align: center;
+    padding: 5px 0;
+}
+/*header and buttons*/
+h4 {
+    padding: 4px 0 0 30px;
+    color: rgb(37, 37, 37);
+    font-weight: bolder;
+}
+
+.go-back-ing,
+.go-front-ing,
+.go-back-shopping {
+    visibility: hidden;
+}
+
+.shop-btn {
+    padding: 8px; 
+    width: 180px;
+    margin: auto;
+    border-radius: 4px;
+    text-align: center;
+    display: none;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.shop-btn:hover {
+    transform: scale(1.1);
+}
+
+.main-shop-btn {
+    padding: 8px; 
+    width: 180px;
+    margin: auto;
+    border-radius: 4px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.main-shop-btn:hover {
+    transform: scale(1.04);
+    font-weight: bold;
+}
+
+@media (min-height: 992px) {
+	#uno,
+	#dos,
+	#tres {
+		display: block !important;
+	}
+}
+
+@media (max-width: 991px) {
+    
+
+    .go-back-ing {
+        visibility: visible;
+        font-size: 34px;
+        text-decoration: none;
+        position: relative;
+        top: -54px;
+        left: 25px;
+    }
+
+    .go-front-ing{
+        visibility: visible;
+        font-size: 34px;
+        text-decoration: none;
+        position: relative;
+        top: -52px;
+        right: -85vw;
+    }
+
+    .go-back-shopping {
+        visibility: visible;
+        font-size: 34px;
+        text-decoration: none;
+        position: relative;
+        top: -54px;
+        left: 20px;
+    }
+
+    .servings {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0 10px;
+    }
+
+    .shop-btn {
+        display: block;
+    }
+
+    .main-shop-btn {
+        display: none;
+    }
+
+    .servings {
+        align-items: flex-start;
+    }
+}
+
+
+
+@media (max-width: 658px) {
+    .go-front-ing {
+        right: -85vw;
+    }
+}
+
+@media (max-width: 520px) {
+    .go-front-ing {
+        right: -80vw;
+    }
+
+    .go-back-ing {
+        left: 32px;
+    }
+}

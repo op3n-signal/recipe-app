@@ -1,0 +1,62 @@
+.container {
+    width: 100%;
+}
+
+.ingredient {
+    line-height: 40px;
+    font-size: 17px;
+    color: rgb(39, 39, 39);
+}
+
+.ingredient .name {
+    font-style: italic;
+}
+
+.flexer {
+    display: flex;
+}
+
+.measures {
+    margin: 6px 0 0 0;
+}
+
+.nameey {
+    display: flex;
+	justify-content: space-between;
+}
+
+.btn-add {
+    height: 30px;
+    width: 56px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-add:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 991px) {
+    .row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .flexer {
+        flex: 1;
+        padding: 0 0 0 30px;
+    }
+
+    .measures {
+        flex: 1;
+    }
+
+    .nameey {
+        flex: 6;
+    }
+
+    
+}

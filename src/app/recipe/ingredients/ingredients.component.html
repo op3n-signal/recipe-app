@@ -1,0 +1,25 @@
+<div class="container">
+        <div class="row">
+                <div *ngIf="count == 0" class="col-md-1 amount ingredient flexer">
+                        <div *ngIf="(numCounter != 0 && denCounter != 0); else whole">
+                                <span *ngIf="originalMixedDecimal != 0">{{ wholeNumber }}</span> {{ numCounter }}/{{ denCounter }}
+                        </div>
+                        <ng-template #whole><p>{{ amountArr }}</p></ng-template>
+                </div>
+                <div *ngIf="count != 0" class="col-md-1 ingredient flexer" #look>
+                        <div *ngIf="(newNumCounter != 0 && newDenCounter != 0); else newwhole">
+                                <span *ngIf="newOriginalMixedDecimal != 0">{{ newWholeNumber }}</span> {{ newNumCounter }}/{{ newDenCounter }}
+                        </div>
+                        <ng-template #newwhole><p>{{ newAmountArr }}</p></ng-template>
+                </div>
+                <div class="col-md-1 measures">
+                        <p>{{ measure }}</p>
+                </div>
+                <div class="col-md-10 ingredient nameey">
+                        <p class="name col-xs-10">{{ ingredient.name }}</p>
+                        <a class="btn-add btn btn-primary" href="#">ADD</a>
+                </div>
+        </div>
+</div>
+
+
