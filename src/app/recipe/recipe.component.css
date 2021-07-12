@@ -11,7 +11,7 @@
 .one {
     margin: 0;
     padding: 0;
-    background: url('https://www.foodphotographyprops.co.uk/wp-content/uploads/2015/10/Food-Photography-Props-Web.jpg') no-repeat;
+    background: url('/assets/images/main.jpg') no-repeat;
     width: 100vw;
     min-height: 22.5vh;
     background-position: center;
@@ -46,9 +46,9 @@
 /*bottom border for the h1 of each of the bottom components*/
 .border-bottom {
     padding: 20px;
-    color: rgb(24, 24, 24);
     text-align: center;
     margin: 0;
+    color: rgb(97, 97, 97);
 }
 
 .go-back {
@@ -65,19 +65,21 @@
 .servings p {
    font-weight: bold;
    font-size: 17px;
-   padding: 10px 10px 0 0;
+   padding: 5px 10px 0 0;
    color: rgb(46, 46, 46);
-   flex: 1;
+   flex: 2;
 }
 
 select {
-    width: 3.5em;
+    width: 3.2em;
+    padding: 2px;
     max-height: 2em;
-    flex: 0.5;
+    flex: 0.8;
+    border: solid 1px rgb(151, 151, 175);
 }
 
 .servings div {
-    flex: 6;
+    flex: 5;
     text-align: center;
     padding: 5px 0;
 }
@@ -87,6 +89,7 @@ h4 {
     color: rgb(37, 37, 37);
     font-weight: bolder;
 }
+
 
 .go-back-ing,
 .go-front-ing,
@@ -98,7 +101,6 @@ h4 {
     padding: 8px; 
     width: 180px;
     margin: auto;
-    border-radius: 4px;
     text-align: center;
     display: none;
     color: white;
@@ -114,10 +116,11 @@ h4 {
     padding: 8px; 
     width: 180px;
     margin: auto;
-    border-radius: 4px;
     text-align: center;
     color: white;
     text-decoration: none;
+    border: none;
+    background: rgb(64, 95, 143);
     font-size: 14px;
 }
 
@@ -126,7 +129,7 @@ h4 {
     font-weight: bold;
 }
 
-@media (min-height: 992px) {
+@media (min-width: 992px) {
 	#uno,
 	#dos,
 	#tres {
@@ -139,29 +142,38 @@ h4 {
 
     .go-back-ing {
         visibility: visible;
-        font-size: 34px;
+        font-size: 18px;
         text-decoration: none;
-        position: relative;
-        top: -54px;
-        left: 25px;
+        color: white;
+        background: rgb(64, 95, 143);
+        padding: 2px 7px;
+        position: absolute;
+        top: 20px;
+        left: 40px;
     }
 
     .go-front-ing{
         visibility: visible;
-        font-size: 34px;
+        font-size: 18px;
+        color: white;
+        background: rgb(64, 95, 143);
+        padding: 2px 7px;
         text-decoration: none;
-        position: relative;
-        top: -52px;
-        right: -85vw;
+        position: absolute;
+        top: 20px;
+        right: 40px;
     }
 
     .go-back-shopping {
         visibility: visible;
-        font-size: 34px;
+        color: white;
+        background: rgb(64, 95, 143);
+        padding: 2px 7px;
+        font-size: 18px;
         text-decoration: none;
-        position: relative;
-        top: -54px;
-        left: 20px;
+        position: absolute;
+        top: 20px;
+        left: 40px;
     }
 
     .servings {
@@ -172,6 +184,8 @@ h4 {
 
     .shop-btn {
         display: block;
+        background: rgb(64, 95, 143);
+        border: none;
     }
 
     .main-shop-btn {
@@ -184,19 +198,23 @@ h4 {
 }
 
 
-
-@media (max-width: 658px) {
-    .go-front-ing {
-        right: -85vw;
-    }
-}
-
-@media (max-width: 520px) {
-    .go-front-ing {
-        right: -80vw;
-    }
-
+@media (max-width: 500px) {
     .go-back-ing {
-        left: 32px;
+        font-size: 14px;
+        left: 20px;
+    }
+
+    .go-front-ing{
+        font-size: 14px;
+        right: 20px;
+    }
+
+    .go-back-shopping {
+        font-size: 14px;
+        left: 20px;
+    }
+
+    .border-bottom {
+        font-size: 16px;
     }
 }

@@ -9,7 +9,14 @@ import { ServingsService } from './ingredients/servings.service';
 
 export class RecipeViewComponent implements OnInit {
     data = [];
+    shoppingListArr = [];
+    shoppingListAmount = [];
+    shoppingListSize = [];
+    shoppingListName = [];
+
+    ingredientSearcher;
     service;
+    shoppingService;
     ingredients;
     servings: number;
     newSearch = true;
@@ -22,7 +29,15 @@ export class RecipeViewComponent implements OnInit {
     spinner;
     mql;
 
+    hold;
+    item;
+    singleAmount;
+    singleSize;
+    singleName;
+
     @ViewChild('items') recipeItemsHolder: ElementRef; 
+    @ViewChild('ings') ingrs: ElementRef;
+    @ViewChild('servingSize') servingSize: ElementRef;
     
     //vars to hold clicks from Recipe List
     //this holds the previous clicks
@@ -33,22 +48,31 @@ export class RecipeViewComponent implements OnInit {
     //this holds the div element
     recipesDivElement = [];
 	
-	ngOnInit() {
-		window.addEventListener('resize', (e) => {
-			//need to fix here, when I resize the divs are not in block display
-			this.mql = window.matchMedia('(max-width: 991px)');
-			console.log(this.mql);
-			if(this.mql.matches == true) {
-				document.getElementById('uno').style.display = 'block';
-				document.getElementById('dos').style.display = 'block';
-				document.getElementById('tres').style.display = 'block';
-			}	
-		});
-		
-	}
+	ngOnInit() {}
     
     constructor(_servingsService: ServingsService) {
         this.service = _servingsService;
+
+        //this click event listener is for "only" "add" btn clicks
+        document.addEventListener('click', (event) => {
+            this.hold = event;
+            
+            if(this.hold.target.closest('a') && this.hold.target.classList.contains('btn-add-active')) {
+                if(this.hold.target.parentElement.parentElement.childNodes[4]) {
+                    this.item = this.hold.target.parentElement.parentElement.childNodes;
+                    //getting all values of item clicked
+                    if(this.item[0].innerText) {
+                        this.singleAmount = this.item[0].innerText;
+                    } else {
+                        this.singleAmount = this.item[1].innerText;
+                    }
+                    this.singleSize = this.item[3].innerText;
+                    this.singleName = this.item[4].innerText;
+                    //now that I have values from ING comp, send them to shopping comp via input and ngChanges
+                }
+            }
+                
+        });
     }
     
     getRecipe(event) {
@@ -145,7 +169,6 @@ export class RecipeViewComponent implements OnInit {
 		
 		this.mql = window.matchMedia('(max-width: 991px)');
         if(this.mql.matches == true) {
-			console.log('gg');
 			//here I need to fix this, this is what I want on small deviced but not desktop view
 			//
             document.getElementById('uno').style.display = 'none';
@@ -175,6 +198,7 @@ export class RecipeViewComponent implements OnInit {
         if(window.matchMedia('(max-width: 991px)')) {
             document.getElementById('uno').style.display = 'block';
             document.getElementById('dos').style.display = 'none';
+            document.getElementById('tres').style.display = 'none';
         }
         
     }
@@ -183,6 +207,7 @@ export class RecipeViewComponent implements OnInit {
         if(window.matchMedia('(max-width: 991px)')) {
             document.getElementById('tres').style.display = 'block';
             document.getElementById('dos').style.display = 'none';
+            document.getElementById('uno').style.display = 'none';
         }
         
     }
@@ -191,8 +216,50 @@ export class RecipeViewComponent implements OnInit {
         if(window.matchMedia('(max-width: 991px)')) {
             document.getElementById('tres').style.display = 'none';
             document.getElementById('dos').style.display = 'block';
+            document.getElementById('uno').style.display = 'none';
         }
-        
+    }
+
+    //this whole function is for only "add all" btn clicks
+    addIngredients() {
+        //holding the ingredients in the ing component
+        this.ingredientSearcher = this.ingrs.nativeElement.childNodes;
+
+        let getValues = () => {
+            if(this.shoppingListArr.length > 0) {
+                this.shoppingListArr.splice(0);
+                this.shoppingListAmount.splice(0);
+                this.shoppingListSize.splice(0);
+                this.shoppingListName.splice(0);
+            }
+            //getting only ingredients from the child nodes array
+            for(let i = 0; i < this.ingredientSearcher.length; i++) {
+                if(this.ingredientSearcher[i].nodeName == 'INGREDIENTS') {
+                    this.shoppingListArr.push(this.ingredientSearcher[i].childNodes[0].childNodes[0].childNodes);
+                }
+            }
+        }
+        getValues();
+
+        //now send this variable to the shopping list comp
+        //I have the values but still do not have them when they change
+        for(let j = 0; j < this.shoppingListArr.length; j++) {
+            //I need to make this switch from index 0 to 1
+            //and make it so that only the first instance goes into the 0 index of j
+            if(this.shoppingListArr[j][0].innerText) {
+                this.shoppingListAmount.push(this.shoppingListArr[j][0].innerText);
+            } else {
+                this.shoppingListAmount.push(this.shoppingListArr[j][1].innerText);
+            }
+            this.shoppingListSize.push(this.shoppingListArr[j][3].innerText);
+            this.shoppingListName.push(this.shoppingListArr[j][4].innerText);
+        }
+
+        if(window.matchMedia('(max-width: 991px)')) {
+            document.getElementById('tres').style.display = 'block';
+            document.getElementById('dos').style.display = 'none';
+            document.getElementById('uno').style.display = 'none';
+        }
     }
 
 }

@@ -9,6 +9,7 @@ import { ServingsService } from './servings.service';
 
 export class IngredientsComponent implements OnInit, OnChanges {
     @Input() ingredient;
+
     servingService;
 
     count = 0;
@@ -59,7 +60,6 @@ export class IngredientsComponent implements OnInit, OnChanges {
                 //console.log(this.newIngredients);
                 
             });    
-            
     }
 
     runAgain(z) {
@@ -171,6 +171,8 @@ export class IngredientsComponent implements OnInit, OnChanges {
     runIt(s) {
         //array of the amount in string version
         this.amountArr.push(s.amount.toString());
+        
+        
         /*
         //if the number has a decimal
 
@@ -269,6 +271,10 @@ export class IngredientsComponent implements OnInit, OnChanges {
     constructor(_servingsService: ServingsService) {
         this.servingService = _servingsService;
         //now find how to get updated on the servings
+    }
+
+    addToShopping(event) {
+        event.target.classList.add('btn-add-active');
     }
 
 }

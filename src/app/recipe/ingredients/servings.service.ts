@@ -157,5 +157,4 @@ export class ServingsService {
             this.exportArr.splice(0, this.ingLength);
         }
     }
-
 }

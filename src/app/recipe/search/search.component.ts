@@ -8,7 +8,7 @@ import { Recipe } from './recipe.model';
 })
 
 export class SearchComponent {
-    searchedRecipe = '';
+    searchedRecipe = 'pizza';
 
     @Output() recipeSearched = new EventEmitter<{title: string, baseUri: string, image: string, id: number, time: number, servings: number, url: string, search: string}>();
     recipes: Recipe[];

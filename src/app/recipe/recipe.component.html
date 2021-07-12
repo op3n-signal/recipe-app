@@ -22,12 +22,12 @@
 
         <div class="col-md-6 second-area" id="dos">
             <h3 class="border-bottom">Ingredients</h3>
-            <a class="go-back-ing" (click)="goLeftRec()" href="#uno">&#10554;</a>
-            <a class="go-front-ing" (click)="goRight()" href="#tres">&#10556;</a>
-            <div *ngIf="newSearch == true">
+            <a class="go-back-ing" (click)="goLeftRec()" href="#uno">&#8249; Recipe List</a>
+            <a class="go-front-ing" (click)="goRight()" href="#tres">Shopping List &#8250;</a>
+            <div *ngIf="newSearch == true" #ings>
                 <div *ngIf="servings" class="servings">
                     <p>Serving Size</p>
-                    <select value="update" id="servings-select">
+                    <select class="form-control" value="update" id="servings-select" #servingSize>
                         <option class="serving" value="servings" selected="selected">{{ servings }}</option>
                         <option class="serving" value="servings * 2">{{ servings * 2 }}</option>
                         <option class="serving" value="servings * 3">{{ servings * 3 }}</option>
@@ -40,17 +40,21 @@
                 <ingredients
                     *ngFor="let i of ingredients"
                     [ingredient]="i"></ingredients>
-                    <a *ngIf="servings" class="shop-btn btn btn-primary" (click)="goRight()" href="#tres">Add All to Shopping List</a>
-                    <a *ngIf="servings" class="main-shop-btn btn btn-primary" href="#">Add All to Shopping List</a>
-                
+                <a *ngIf="servings" class="shop-btn btn btn-primary" (click)="addIngredients()" href="#tres">Add All to Shopping List</a>
+                <a *ngIf="servings" class="main-shop-btn btn btn-primary" (click)="addIngredients()" href="#">Add All to Shopping List</a>
             </div>
-              
         </div>
 
         <div class="col-md-3 second-area" id="tres">
             <h3 class="border-bottom">Shopping List</h3>
-            <a class="go-back-shopping" (click)="goLeftIng()" href="#dos">&#10554;</a>
-            <shopping-list></shopping-list>
+            <a class="go-back-shopping" (click)="goLeftIng()" href="#dos">&#8249; Ingredients</a>
+            <shopping-list 
+                [amount]="shoppingListAmount"
+                [size]="shoppingListSize"
+                [name]="shoppingListName"
+                [itemAmount]="singleAmount"
+                [itemSize]="singleSize"
+                [itemName]="singleName"></shopping-list>
         </div>
     </div>    
 </div>

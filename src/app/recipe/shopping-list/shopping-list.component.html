@@ -1,6 +1,22 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-3 shopping-area">
+<div class="container" #list> 
+    <div *ngIf="first; else other">
+        <div class="row" *ngFor="let j of itemsArray">
+            <div class="col-md-3">
+                <p><span class="numb">{{ j.a }}</span> <span class="size">{{ j.s }}</span> <span class="name">{{ j.n }}</span> <a class="btn-danger ex" (click)="deleteItem($event)" href="#">X</a></p>
+            </div>
         </div>
-    </div>       
+    </div>
+    <ng-template #other>
+        <div class="row" *ngFor="let x of amounts; let i = index">
+            <div class="col-md-3 shopping-area">
+                    <p><span class="numb">{{ x }}</span> <span class="size">{{ sizes[i] }}</span> <span class="name">{{ names[i] }}</span> <a class="btn-danger ex" (click)="deleteItem($event)" href="#">X</a></p>
+            </div>
+        </div>  
+    </ng-template>
+    <div class="row">
+        <div class="col-md-3">
+            <a (click)="deleteAll()" class="hidden btn btn-danger" href="#">Delete All</a>
+            <a class="hidden btn btn-primary" (click)="print()" href="#">Print</a>
+        </div>
+    </div>
 </div>

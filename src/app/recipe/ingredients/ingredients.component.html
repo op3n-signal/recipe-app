@@ -17,8 +17,11 @@
                 </div>
                 <div class="col-md-10 ingredient nameey">
                         <p class="name col-xs-10">{{ ingredient.name }}</p>
-                        <a class="btn-add btn btn-primary" href="#">ADD</a>
                 </div>
+                <div class="add">
+                      <a class="btn-add btn btn-primary" (click)="addToShopping($event)" href="#">ADD</a>  
+                </div>
+                
         </div>
 </div>
 

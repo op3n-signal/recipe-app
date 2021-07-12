@@ -1,10 +1,13 @@
+a {
+    color: rgb(64, 95, 143);
+}
 
 h4{ 
     height: auto;
 }
 
 h4:hover {
-    transform: scaleY(1.1);
+    transform: scaleY(1.02);
 }
 
 .border-bottom {
@@ -70,10 +73,6 @@ p {
         margin: 0 5px;
     }
 
-    img {
-        flex: 0.5;
-    }
-
 }
 
 @media (max-width: 600px) {
@@ -92,7 +91,7 @@ p {
 
     img {
         height: 120px;
-        width: 150px;
+        width: 120px;
         margin: auto;
     }
 }

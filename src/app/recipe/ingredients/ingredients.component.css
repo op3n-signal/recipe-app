@@ -18,21 +18,37 @@
 
 .measures {
     margin: 6px 0 0 0;
+    padding-top: 4px;
 }
 
 .nameey {
     display: flex;
 	justify-content: space-between;
+    width: 60%;
+}
+
+.add {
+    display: flex;
 }
 
 .btn-add {
-    height: 30px;
+    height: 25px;
+    padding: 4px;
     width: 56px;
     border-radius: 4px;
     font-size: 12px;
     color: white;
     text-decoration: none;
     text-align: center;
+    opacity: 1;
+    margin: 10px 15px 0 0 ;
+    background: rgb(64, 95, 143);
+    border: none;
+}
+
+.btn-add-active {
+    background: rgb(73, 175, 73);
+    border: solid 1px rgb(73, 175, 73);
 }
 
 .btn-add:hover {
@@ -55,8 +71,14 @@
     }
 
     .nameey {
-        flex: 6;
+        flex: 7;
     }
 
     
+}
+
+@media (max-width: 400px) {
+    p, div {
+        font-size: 14px;
+    }
 }
